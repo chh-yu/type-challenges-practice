@@ -4,3 +4,7 @@
 </p>
 
 <p align='center'>TypeScript 类型体操姿势练习</p>
+
+<p align='center'>
+    <a href="https://github.com/type-challenges/type-challenges" target="_blank">type-challenges仓库</a>
+</p>
