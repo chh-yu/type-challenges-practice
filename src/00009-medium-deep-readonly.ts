@@ -80,6 +80,11 @@
  * 
  * Q: what is "extends never" used for?
  * A: https://stackoverflow.com/questions/68693054/what-is-extends-never-used-for/68693367
+ * 理解: In this case, 'keyof T' is used for geting union type 
+ * that if there're any type inclued in the union type,
+ * then it means T is a Object with some keys, so we can process it recursively.
+ * Otherwise, T maybe is premitive type or object with no keys whitch means we can just return T.
+ * 
  * 
  * 2）nice definition of the recursive cases: the value T[k] is always define recursively.
  * { readonly [k in keyof T]: DeepReadonly<T[k]> }
