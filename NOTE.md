@@ -10,3 +10,13 @@
 `<T>() => T extends X等价于<T>() => (T extends X)`
 [参考1](https://stackoverflow.com/questions/68961864/how-does-the-equals-work-in-typescript%EF%BC%89%E3%80%82)
 [参考2](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+- as使用技巧
+`type MyOmit<T, K extends keyof T> = { [key in keyof T as key extends K ? never : key]: T[key] };`
+In TypeScript 4.1 and onwards, you can re-map keys in mapped types with an as clause in a mapped type.
+[参考2](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#key-remapping-via-as)
+- [-readonly](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers)
+- [what is "extends never" used for?](https://stackoverflow.com/questions/68693054/what-is-extends-never-used-for/68693367)
+In the [issue recommented](https://github.com/type-challenges/type-challenges/issues/187) for [00009-medium-deep-readonly](./src/00009-medium-deep-readonly.ts),
+'keyof T' is used for geting union type that if there're any type inclued in the union type,
+then it means T is a Object with some keys, so we can process it recursively.
+Otherwise, T maybe is premitive type or object with no keys whitch means we can just return T.
